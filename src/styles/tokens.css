@@ -1,0 +1,47 @@
+/* 设计变量、reset 与基础排版 */
+
+:root {
+  --bg: #0a0a0b;
+  --panel: rgba(255, 255, 255, 0.03);
+  --ink: #eceae5;
+  --muted: #8d8a83;
+  --dim: #605d57;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --accent: #d8a15f;
+  --accent-2: #9c968b;
+  --radius: 12px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font: "SF Pro Text", -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif CJK SC",
+    "Noto Serif SC", Georgia, "Times New Roman", serif;
+  --mono: "SF Mono", "JetBrains Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body.locked { position: fixed; left: 0; right: 0; width: 100%; overflow: hidden; }
+
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: rgba(216, 161, 95, 0.25); color: #fff; }
+
+.mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+.dim { color: var(--dim); }

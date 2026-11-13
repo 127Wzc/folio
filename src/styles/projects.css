@@ -1,0 +1,94 @@
+/* 个人信息与项目列表 */
+
+/* ---------- intro ---------- */
+.intro {
+  min-height: 68vh;
+  display: grid;
+  align-content: center;
+  padding: 110px 0 50px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.intro::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(10,10,11,0.35) 0%, rgba(10,10,11,0.1) 40%, var(--bg) 100%);
+}
+.intro .container { position: relative; z-index: 2; }
+.intro-name {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.intro-inner { max-width: none; }
+.intro-name, .intro-role, .intro-motto { max-width: 520px; }
+.intro-role { margin-top: 20px; font-size: 15px; color: var(--muted); }
+.intro-motto {
+  margin-top: 26px; padding-left: 14px;
+  border-left: 1px solid var(--line-strong);
+  font-family: var(--serif); font-size: 14px; color: var(--muted);
+}
+.stack-tip {
+  position: absolute; left: 0; top: 0; z-index: 3;
+  transform: translate3d(0, 0, 0) translateX(-50%);
+  will-change: transform;
+  padding: 7px 11px 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  background: rgba(10, 10, 11, 0.92);
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.03em;
+  color: var(--accent); white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+.stack-tip::before {
+  content: ""; position: absolute; left: 50%; top: -15px;
+  width: 1px; height: 14px;
+  background: linear-gradient(180deg, transparent, var(--line-strong));
+}
+.stack-tip.on { opacity: 1; }
+
+/* ---------- project list ---------- */
+.work { padding-bottom: 30px; }
+.project-list { border-top: 1px solid var(--line); }
+
+.project {
+  display: grid;
+  grid-template-columns: 30px 176px minmax(0, 1fr) auto 16px;
+  align-items: center;
+  gap: 26px;
+  padding: 20px 2px;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.project:hover { background: rgba(255, 255, 255, 0.022); }
+.project:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+
+.p-no { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+.p-thumb {
+  width: 176px; height: 110px;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--line);
+  background: #101011;
+}
+.p-thumb img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top left;
+  filter: brightness(0.85) saturate(0.9);
+  transition: filter 0.4s, transform 0.5s var(--ease);
+}
+.project:hover .p-thumb img { filter: brightness(0.97) saturate(1); transform: scale(1.04); }
+
+.p-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.p-name { font-family: var(--serif); font-size: 24px; line-height: 1.2; }
+.p-desc {
+  color: var(--muted); font-size: 13.5px; line-height: 1.6;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.p-meta {
+  font-family: var(--mono); font-size: 10px; color: var(--dim);
+  text-align: right; white-space: nowrap;
+}
+.p-arrow { color: var(--dim); font-size: 14px; transition: color 0.25s, transform 0.3s var(--ease); }
+.project:hover .p-arrow { color: var(--accent); transform: translate(2px, -2px); }

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Warden·Cusp · Folio — 作品集</title>
+    <meta
+      name="description"
+      content="Warden·Cusp 的作品集：AI 群聊 Agent、采集与任务编排系统、ImgTag 图片检索。"
+    />
+    <meta name="theme-color" content="#0a0a0b" />
+    <style>
+      /* 兜底：主样式表到达前也不出现白底 / 无排版闪烁 */
+      html { background: #0a0a0b; }
+      body {
+        margin: 0;
+        background: #0a0a0b;
+        color: #eceae5;
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0b'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23d8a15f'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%239c968b' stroke-width='2' stroke-dasharray='3 7'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+
+    <header class="nav" id="nav">
+      <a class="brand" href="#top" aria-label="Warden·Cusp · Folio">
+        <span class="brand-mark"></span>
+        <span class="brand-text">WARDEN<em>·</em>CUSP</span>
+        <span class="brand-tag">FOLIO</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#work">作品</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro" id="top">
+        <canvas id="bg" aria-hidden="true"></canvas>
+        <div class="stack-tip" id="stack-tip" aria-live="polite"></div>
+        <div class="container intro-inner">
+          <h1 class="intro-name">Warden·Cusp</h1>
+          <p class="intro-role">全栈 · AI Agent · 自托管</p>
+          <p class="intro-motto">君子终日乾乾，夕惕若厉，无咎</p>
+        </div>
+      </section>
+
+      <section class="work container" id="work">
+        <ol class="project-list" id="project-list"></ol>
+      </section>
+
+      <section class="contact container" id="contact">
+        <p class="contact-quote"><span class="q-text" id="contact-quote"></span></p>
+        <div class="contact-links">
+          <a href="https://github.com/127Wzc" target="_blank" rel="noreferrer">GitHub <i>↗</i></a>
+          <a href="https://blog.559558.xyz/" target="_blank" rel="noreferrer">博客 <i>↗</i></a>
+          <a href="https://uk.559558.xyz/status/web" target="_blank" rel="noreferrer">服务监控 <i>↗</i></a>
+        </div>
+        <footer class="foot">
+          <span class="mono dim">© 2026 Warden·Cusp · Folio</span>
+        </footer>
+      </section>
+    </main>
+
+    <div class="case-root" id="case-root" aria-hidden="true"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

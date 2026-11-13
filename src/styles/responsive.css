@@ -1,0 +1,41 @@
+/* 断点与 reduced-motion */
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .hl-grid { grid-template-columns: 1fr; }
+  .note-grid { grid-template-columns: 1fr; }
+  .note:last-child:nth-child(odd) { grid-column: span 1; }
+  .case-meta { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+@media (max-width: 860px) {
+  .project { grid-template-columns: 26px minmax(0, 1fr) 16px; gap: 16px; }
+  .p-thumb, .p-meta { display: none; }
+  .p-name { font-size: 20px; }
+}
+
+@media (max-width: 720px) {
+  .container { width: calc(100% - 36px); }
+  .nav-links { display: none; }
+  .nav { padding: 14px 18px; }
+  .hero { padding-top: 100px; }
+  .hero-meta { gap: 16px; }
+  .stack-tip { display: none; }
+  .case-shell { width: calc(100% - 32px); padding-top: 14px; }
+  .case-meta { grid-template-columns: 1fr 1fr; }
+  #wan-timeline { height: 240px; }
+  .fsm { min-width: 560px; }
+  .demo-head .demo-note { display: none; }
+  .section { padding-top: 90px; }
+  .contact { padding-top: 100px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
